@@ -1,6 +1,10 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+import random
 
 
 def home(request):
-    return HttpResponse("Home") 
+    context = {
+        "title": "Random Generator",
+        "value": random.randint(0,9)
+    }
+    return render(request, "index.html", context) 
